@@ -34,16 +34,6 @@
         NSLog(@"%@", object);
     }];
     [self.view addSubview:sortview];
-    
-    /*
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
-    [btn setFrame:CGRectMake(10, 20, 100, 50)];
-    [btn setBackgroundColor:[UIColor redColor]];
-    [btn setTitle:@"title" forState:UIControlStateNormal];
-//    [btn.titleLabel setText:@"titlelabel"];
-    
-    [self.view addSubview:btn];
-     */
 }
 
 @end

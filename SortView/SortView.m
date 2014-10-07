@@ -37,7 +37,6 @@
         titleView = [UIButton buttonWithType:UIButtonTypeSystem];
         myTableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
         
-//        self.clipsToBounds = YES; // Note: we should only use this property when debugging expand feature.
     }
     return self;
 }
@@ -45,8 +44,6 @@
 - (void)layoutSubviews
 {
     titleView.frame = CGRectMake(0, 0, self.frame.size.width, titleViewHeight);
-//    titleView.titleLabel.textAlignment = NSTextAlignmentCenter;
-//    titleView.titleLabel.textColor = [UIColor redColor];
     titleView.backgroundColor = [UIColor grayColor];
     [titleView addTarget:self action:@selector(clickTitleView) forControlEvents:UIControlEventTouchUpInside];
     
@@ -85,7 +82,7 @@
 {
     if (flag)
     {
-//        self.clipsToBounds = NO;
+        self.clipsToBounds = NO;
         self.frame = CGRectMake(self.frame.origin.x,
                                 self.frame.origin.y,
                                 expandedSize.width,

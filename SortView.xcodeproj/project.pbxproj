@@ -19,6 +19,8 @@
 		6871494D19E201CA008A93DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6871493519E201CA008A93DF /* UIKit.framework */; };
 		6871495519E201CA008A93DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6871495319E201CA008A93DF /* InfoPlist.strings */; };
 		6871495719E201CA008A93DF /* SortViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6871495619E201CA008A93DF /* SortViewTests.m */; };
+		6871496219E2021B008A93DF /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6871496119E2021B008A93DF /* MyViewController.m */; };
+		6871496519E203DC008A93DF /* SortView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6871496419E203DC008A93DF /* SortView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,10 @@
 		6871495219E201CA008A93DF /* SortViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SortViewTests-Info.plist"; sourceTree = "<group>"; };
 		6871495419E201CA008A93DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6871495619E201CA008A93DF /* SortViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SortViewTests.m; sourceTree = "<group>"; };
+		6871496019E2021B008A93DF /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		6871496119E2021B008A93DF /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		6871496319E203DC008A93DF /* SortView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortView.h; sourceTree = "<group>"; };
+		6871496419E203DC008A93DF /* SortView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,10 @@
 			children = (
 				6871494019E201CA008A93DF /* AppDelegate.h */,
 				6871494119E201CA008A93DF /* AppDelegate.m */,
+				6871496019E2021B008A93DF /* MyViewController.h */,
+				6871496119E2021B008A93DF /* MyViewController.m */,
+				6871496319E203DC008A93DF /* SortView.h */,
+				6871496419E203DC008A93DF /* SortView.m */,
 				6871494319E201CA008A93DF /* Images.xcassets */,
 				6871493819E201CA008A93DF /* Supporting Files */,
 			);
@@ -239,6 +249,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6871496519E203DC008A93DF /* SortView.m in Sources */,
+				6871496219E2021B008A93DF /* MyViewController.m in Sources */,
 				6871494219E201CA008A93DF /* AppDelegate.m in Sources */,
 				6871493E19E201CA008A93DF /* main.m in Sources */,
 			);

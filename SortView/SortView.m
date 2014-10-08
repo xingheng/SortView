@@ -51,7 +51,9 @@
                                  titleView.frame.size.height + titleViewMargin,
                                  self.frame.size.width,
                                  self.frame.size.height - titleViewMargin - titleView.frame.origin.y - titleViewHeight);
-//    myTableView.backgroundColor = [UIColor redColor];
+    myTableView.scrollEnabled = NO;
+    myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    myTableView.backgroundColor = [UIColor grayColor];
     myTableView.delegate = self;
     myTableView.dataSource = self;
     
@@ -116,9 +118,10 @@
     if (cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        cell.backgroundColor = [UIColor clearColor];
     }
     
-    cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.text = [tableViewDataSource[indexPath.row] description];
     
     return cell;
@@ -144,6 +147,7 @@
     [tableViewDataSource insertObject:selectedText atIndex:0];
     
     [self setDataSource:tableViewDataSource];
+    [self clickTitleView];
     
     if (self.switchedBlock)
     {

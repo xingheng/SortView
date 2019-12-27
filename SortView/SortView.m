@@ -8,6 +8,8 @@
 
 #import "SortView.h"
 
+#define kTableCellHeight    30
+
 @interface SortView()
 {
     UIButton *titleView;
@@ -45,6 +47,7 @@
 {
     titleView.frame = CGRectMake(0, 0, self.frame.size.width, titleViewHeight);
     titleView.backgroundColor = [UIColor grayColor];
+    [titleView setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [titleView addTarget:self action:@selector(clickTitleView) forControlEvents:UIControlEventTouchUpInside];
     
     myTableView.frame = CGRectMake(0,
@@ -65,9 +68,12 @@
 {
     if (titleView)
     {
-//        [titleView.titleLabel setText:[dataSource[0] description]];
         [titleView setTitle:dataSource[0] forState:UIControlStateNormal];
     }
+    
+    CGRect frame = myTableView.frame;
+    myTableView.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, kTableCellHeight * dataSource.count);
+    expandedSize = CGSizeMake(frame.size.width, frame.size.height);
     
     NSArray *arr = [dataSource subarrayWithRange:NSMakeRange(1, dataSource.count - 1)];
     tableViewDataSource = [NSMutableArray arrayWithArray:arr];
@@ -94,8 +100,8 @@
     {
         self.clipsToBounds = YES;
         
-        if (CGSizeEqualToSize(expandedSize, CGSizeZero))
-            expandedSize = myTableView.frame.size;
+//        if (CGSizeEqualToSize(expandedSize, CGSizeZero))
+//            expandedSize = myTableView.frame.size;
         
         self.frame = CGRectMake(self.frame.origin.x,
                                 self.frame.origin.y,
@@ -120,6 +126,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
         cell.backgroundColor = [UIColor clearColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     cell.textLabel.text = [tableViewDataSource[indexPath.row] description];
@@ -136,11 +143,16 @@
     return YES;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return kTableCellHeight;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *selectedText = tableViewDataSource[indexPath.row];
     NSString *titleText = titleView.titleLabel.text;
-    titleView.titleLabel.text = selectedText;
+    [titleView setTitle:selectedText forState:UIControlStateNormal];
     
     [tableViewDataSource removeObjectAtIndex:indexPath.row];
     [tableViewDataSource insertObject:titleText atIndex:0];
